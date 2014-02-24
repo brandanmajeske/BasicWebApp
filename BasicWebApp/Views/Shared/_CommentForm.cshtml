@@ -1,0 +1,14 @@
+﻿@model BasicWebApp.Models.Comment
+
+@{
+    Layout = null;
+}
+
+@Html.HiddenFor(m => m.SessionID)
+
+<div>
+    @Html.LabelFor(m => m.Content)
+    @Html.EditorFor(m => m.Content)
+</div>
+
+<button type="submit">Submit Comment</button>

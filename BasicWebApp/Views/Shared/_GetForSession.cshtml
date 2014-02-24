@@ -1,0 +1,16 @@
+﻿@model IEnumerable<BasicWebApp.Models.Comment>
+           
+<div id="comments">
+    <ul>
+        @foreach (var comment in Model)
+        {
+            <li>@comment.Content</li>
+        }
+    </ul>
+    
+    @using(Ajax.BeginForm("_Submit", "Comment", new AjaxOptions(){ UpdateTargetId = "comments"}))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Action("_CommentForm", "Comment", new { SessionID = ViewBag.SessionID })
+    }
+</div>
